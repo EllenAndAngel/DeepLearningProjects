@@ -55,18 +55,10 @@ bitwiseNot_sq = cv2.bitwise_not(square)
 blurred = cv2.filter2D(image, -1, kernel_3x3)
 blurred2 = cv2.filter2D(image, -1, kernel_7x7)
 
-
 blur = cv2.blur(image, (3,3))
 
-# Instead of box filter, gaussian kernel
 Gaussian = cv2.GaussianBlur(image, (7,7), 0)
-
-# Takes median of all the pixels under kernel area and central
-# element is replaced with this median value
 median = cv2.medianBlur(image, 5)
-
-
-# Bilateral is very effective in noise removal while keeping edges sharp
 bilateral = cv2.bilateralFilter(image, 9, 75, 75)
 
 - cv2.fastNlMeansDenoising() - 适用灰度图像
@@ -75,4 +67,41 @@ bilateral = cv2.bilateralFilter(image, 9, 75, 75)
 - cv2.fastNlMeansDenoisingColoredMulti() - 适用于彩色图像序列
 
 dst = cv2.fastNlMeansDenoisingColored(image, None, 6, 6, 7, 21)
-10. Sharpening11. Thresholding and Binarization12. Dilation, erosion, opening and closing13. Edge Detection & Image Gradients14. Perspective & Affine Transforms
+10. Sharpening
+kernel_sharpening = np.array([[-1,-1,-1], 
+                              [-1,9,-1], 
+                              [-1,-1,-1]])
+sharpened = cv2.filter2D(image, -1, kernel_sharpening)
+11. Thresholding and Binarization
+ret,thresh1 = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
+
+cv2.THRESH_BINARY      127以下为0(黑色)，127以上为255(白色)
+cv2.THRESH_BINARY_INV  127以下为255(白色)，127以上为0(黑色)
+cv2.THRESH_TRUNC       127以上为127
+cv2.THRESH_TOZERO      127以下为255(白色),127以上不变  
+cv2.THRESH_TOZERO_INV  与cv2.THRESH_TOZERO相反
+
+thresh = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_MEAN_C, 
+                               cv2.THRESH_BINARY, 3, 5) 
+cv2.ADAPTIVE_THRESH_MEAN_C : threshold value is the mean of neighbourhood area.
+cv2.ADAPTIVE_THRESH_GAUSSIAN_C : threshold value is the weighted sum of neighbourhood values where weights are a gaussian window.
+12. Dilation, erosion, opening and closing
+erosion = cv2.erode(image, kernel, iterations = 1)
+dilation = cv2.dilate(image, kernel, iterations = 1)
+opening = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
+closing = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
+13. Edge Detection & Image Gradients
+sobel_x = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=5)
+sobel_y = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=5)
+sobel_OR = cv2.bitwise_or(sobel_x, sobel_y)
+
+laplacian = cv2.Laplacian(image, cv2.CV_64F)
+
+canny = cv2.Canny(image, 50, 120)
+14. Perspective & Affine Transforms
+M = cv2.getPerspectiveTransform(points_A, points_B)
+warped = cv2.warpPerspective(image, M, (Xmax,Ymax))
+M:转换矩阵。
+points_A : 原始图形的顶点坐标
+points_B : 转换过后的顶点坐标
+(Xmax,Ymax):离(0,0)最远的X，Y坐标值
