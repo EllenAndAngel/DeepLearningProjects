@@ -1,0 +1,26 @@
+cats_and_dogs/dataset/
+
+cats_and_dogs/.ipynb_checkpoints/
+cats_and_dogs/CNN2result.PNG
+cats_and_dogs/CNN_catordog.py
+cats_and_dogs/Dog_morphological_variation.png
+
+
+
+/Data Project - Stock Market Analysis.ipynb
+/DataScience
+/MatPlotLib.ipynb
+/images_preprocessing
+/ztdl
+.DS_Store
+.gitignore
+.ipynb_checkpoints/
+/dataset
+*.pdf
+*.pptx
+DeepLearningFromZero/wine.ipynb
+HandwrittenNumber/SVHN_keras.ipynb
+MD_zyr/
+Not-MNIST/
+coursera/
+cv3test/images
