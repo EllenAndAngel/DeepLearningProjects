@@ -22,3 +22,5 @@ MD_zyr/
 Not-MNIST/
 coursera/
 cv3test/images
+HandwrittenNumber/images
+HandwrittenNumber/MNIST_data/
