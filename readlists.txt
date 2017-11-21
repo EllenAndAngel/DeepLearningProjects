@@ -4,3 +4,16 @@ https://towardsdatascience.com/the-10-deep-learning-methods-ai-practitioners-nee
 
 CapsulesNet 的解析及整理
 https://zhuanlan.zhihu.com/p/30970675
+
+
+
+Experiments with a new kind of convolution
+https://towardsdatascience.com/experiments-with-a-new-kind-of-convolution-dfe603262e4c
+
+https://towardsdatascience.com/transforming-a-cat-into-an-art-by-convolutional-layers-5a7c0b9b947c
+
+https://towardsdatascience.com/transfer-learning-using-differential-learning-rates-638455797f00
+
+https://medium.mybridge.co/machine-learning-top-10-articles-for-the-past-month-v-nov-2017-3e5c98e6f9aa
+
+https://hackernoon.com/%EF%B8%8F-big-challenge-in-deep-learning-training-data-31a88b97b282
