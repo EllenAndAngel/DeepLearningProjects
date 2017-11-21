@@ -1,3 +1,6 @@
 The 10 Deep Learning Methods AI Practitioners Need to Apply
+
 https://towardsdatascience.com/the-10-deep-learning-methods-ai-practitioners-need-to-apply-885259f402c1
 
+CapsulesNet 的解析及整理
+https://zhuanlan.zhihu.com/p/30970675
